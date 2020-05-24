@@ -1,0 +1,16 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@600&display=swap");
+
+$navbar-brand-font-size : 2em;
+$body-bg: black ;
+$body-color: #A9A9A9;
+$font-family-base: 'Vollkorn', serif;
+$theme-colors: (
+        "primary": #A9A9A9,
+        "secondary": #008B8B,
+);
+@import "node_modules/bootstrap/scss/bootstrap";
+
+p{
+  margin: 0px;
+}
