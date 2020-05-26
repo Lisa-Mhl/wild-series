@@ -3,15 +3,31 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries de la table program : </h1>
+    <h1>Wild Séries Index </h1>
+    <br>
+    <table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">TITRE</th>
+        <th scope="col">CATEGORIE</th>
+        <th scope="col">RESUME</th>
+    </tr>
+    </thead>
+    <tbody>
     {% for program in programs %}
-        <div>
-            <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-            <p>{{ program.summary }}</p>
-        </div>
-    {% else %}
-        Aucune série trouvée.
+        <tr>
+            <td class="text-primary">{{ program.title }}</td>
+            <td class="text-primary">{{ program.category.name }} </td>
+            <td class="text-primary">{{ program.summary }}</td>
+        </tr>
     {% endfor %}
+        </tbody>
+        </table>
+
+    {% if programs is empty %}
+        Aucune série trouvée.
+    {% endif %}
+
     <a href="{{ path('app_index') }}">
         Retour à l'accueil
     </a>
