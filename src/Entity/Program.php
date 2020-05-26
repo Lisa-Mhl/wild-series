@@ -43,12 +43,12 @@ class Program
         return $this->id;
     }
 
-    public function getTitle(): ?int
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
-    public function setTitle(int $title): self
+    public function setTitle(string $title): self
     {
         $this->title = $title;
 

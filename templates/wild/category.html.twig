@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="mt-0">{{ category.name }}</h1>
+    {% for program in programs %}
+        <div class="media">
+            <img class="align-self-start mr-3 poster" src="{{program.poster}}" alt="{{ program.title }} poster">
+            <div class="media-body">
+                <h1 class="mt-0">{{ program.title }}</h1>
+                <p>{{ program.summary }}</p>
+                <p>Catégorie : {{ program.category.name }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+
