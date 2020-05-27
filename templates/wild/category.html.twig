@@ -2,17 +2,19 @@
 
 {% block body %}
     <h1 class="mt-0">{{ category.name }}</h1>
-    <div class="row">
-        {% for program in programs %}
-            <div class="col-3">
-                <div class="card bg-dark" style="width: 25rem;">
-                    <img class="card-img-top" src="{{ program.poster }}" alt="{{ program.title }}">
-                    <div class="card-body">
-                        <h5 class="card-title"> {{ program.title }}</h5>
-                        <p class="card-text"> {{ program.summary }} </p>
+    <div class="container">
+        <div class="row">
+            {% for program in programs %}
+                <div class="col-4">
+                    <div class="card bg-transparent" style="width: 25rem;">
+                        <img id="poster" class="card-img-top" src="{{ program.poster }}" alt="{{ program.title }}">
+                        <div class="card-body">
+                            <h5 class="card-title text-secondary"> {{ program.title }}</h5>
+                            <p class="card-text"> {{ program.summary }} </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
