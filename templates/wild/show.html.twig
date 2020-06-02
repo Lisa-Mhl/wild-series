@@ -4,11 +4,13 @@
 {% block body %}
     <h1 class="show_title">{{ program.title }}</h1>
     <div class="media">
-        <img  id="poster" class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+        <img id="poster" class="align-self-start mr-3" src="{{ program.poster }}" alt="{{ program.title }} poster">
         <div class="media-body">
-
-            <p>{{ program.summary }}</p>
-            <p>Catégorie : {{ program.category.name }}</p>
+            <p>Synopsis : {{ program.summary }}</p> <br>
+            <p>Catégorie : {{ program.category.name }}</p> <br>
+            {% for season in seasons %}
+                <a href="{{ path('show_season', {'id': season.id}) }}"> <p>Saison {{ season.number }}</p></a>
+            {% endfor %}
         </div>
     </div>
 

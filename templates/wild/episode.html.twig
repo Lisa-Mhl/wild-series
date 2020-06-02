@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ episode.title }}{% endblock %}
+
+{% block body %}
+    <div class="card bg-transparent">
+        <div class="card-body">
+            <h3 class="card-title text-secondary"> {{ program.title }} | Saison {{ episode.season.number }} </h3>
+            <h5 class="card-subtitle mb-2 text-secondary"> Episode n°{{ episode.number }} :
+                "{{ episode.title }}"</h5> <br>
+            <p class="card-text">Synopsis : {{ episode.synopsis }}</p> <br>
+            <a class="card-link" href="{{ path('show_season', {'id': season.id}) }}"> La
+                saison {{ episode.season.number }}</a>
+            <a class="card-link" href="{{ path('wild_show', {'slug': program.title|replace({' ':'-'})|lower}) }}"> La
+                série</a>
+            <a class="card-link" href="{{ path('app_index') }}">
+                Retour à l'accueil
+            </a>
+        </div>
+    </div>
+    <br>
+
+{% endblock %}
+

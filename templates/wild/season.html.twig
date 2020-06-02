@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ program.title }}, Saison{{ season.number }}{% endblock %}
+
+{% block body %}
+    <div class="card bg-transparent">
+        <div class="card-body">
+            <h3 class="card-title text-secondary"> Saison {{ season.number }} de {{ program.title }}</h3>
+            <h5 class="card-subtitle mb-2 text-secondary"> Année : {{ season.year }} <br></h5>
+            <p class="card-text">{{ season.description }}</p>
+            <ul>
+                <br>
+                <h3 class="card-title text-secondary"> Liste épisodes :</h3> <br>
+                {% for episode in episodes %}
+                    <li class="text-primary col-3">Episode {{ episode.number }}
+                        : <a href="{{ path('show_episode', {'id': episode.id}) }}">{{ episode.title }} </a></li>
+                {% endfor %}
+            </ul>
+            <br>
+            <a class="card-link" href="{{ path('app_index') }}">
+                Retour à l'accueil
+            </a>
+        </div>
+    </div>
+
+{% endblock %}
