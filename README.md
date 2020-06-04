@@ -15,3 +15,6 @@ https://www.loom.com/share/86b99924d9fd446ebfdad0a5cb1ba91e
 
 Vidéo quête 14 : 
 https://www.loom.com/share/6240627b6bdd462c9da7b4861153ae59
+
+Vidéo quête 15 : 
+https://www.loom.com/share/1e610a9b483542648cb8cdad0fd17245
