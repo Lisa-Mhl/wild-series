@@ -7,22 +7,22 @@
 
     <table class="table">
         <thead class="thead-dark">
-            <tr>
-                <th>Id</th>
-                <td class="text-primary">{{ program.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td class="text-primary">{{ program.title }}</td>
-            </tr>
-            <tr>
-                <th>Summary</th>
-                <td class="text-primary">{{ program.summary }}</td>
-            </tr>
-            <tr>
-                <th>Poster</th>
-                <td><img class="card-img-top" id="tab_poster" src="{{ program.poster }}" alt="{{ program.title }}"></td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td class="text-primary">{{ program.id }}</td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td class="text-primary">{{ program.title }}</td>
+        </tr>
+        <tr>
+            <th>Summary</th>
+            <td class="text-primary">{{ program.summary }}</td>
+        </tr>
+        <tr>
+            <th>Poster</th>
+            <td><img class="card-img-top" id="tab_poster" src="{{ program.poster }}" alt="{{ program.title }}"></td>
+        </tr>
         </tbody>
     </table>
 
@@ -31,4 +31,15 @@
     <a href="{{ path('program_edit', {'id': program.id}) }}">edit</a>
 
     {{ include('program/_delete_form.html.twig') }}
+
+    <strong>Acteurs :</strong>
+    <ul>
+        {% for actor in program.actors %}
+            <li><a href="{{ path('actor_show', {'id' : actor.id} ) }}"> {{ actor.name }} <br> </a></li>
+
+        {% else %}
+            <li>Aucun acteur pour cette série</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}
