@@ -40,13 +40,33 @@ p {
   margin-left: auto;
 }
 
-#season_ctn{
+#season_ctn {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
 }
 
-#tab_poster{
+#tab_poster {
   height: 150px;
   width: 100px;
+}
+
+form {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+form
+.btn {
+  background-color: #565656;
+  opacity: 80%;
+}
+
+.btn:hover {
+  opacity: 50%;
+}
+
+.btn{
+  text-align: center;
 }
