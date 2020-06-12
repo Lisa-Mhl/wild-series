@@ -26,3 +26,6 @@ https://www.loom.com/share/f66243bc0f3a4594a35cbacac7588a2a (site)
 
 Vidéo Quête 17 :
 https://www.loom.com/share/76feca995149483d9c5a640def79972c
+
+Vidéo Quête 18 :
+https://www.loom.com/share/9f19fda02e7147e69f8384ca74c03267
