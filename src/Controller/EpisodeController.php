@@ -62,19 +62,19 @@ class EpisodeController extends AbstractController
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($comment);
             $comment->setEpisode($episode);
             $user = $this->getUser();
             $comment->setAuthor($user);
+            $entityManager->persist($comment);
             $entityManager->flush();
             return $this->redirectToRoute('episode_index');
         }
         return $this->render('episode/show.html.twig', [
             'episode' => $episode,
             'form' => $form->createView(),
-            'comments' =>$commentRepository->findAll(),
+            'comments' => $commentRepository->findAll(),
         ]);
     }
 
@@ -105,7 +105,7 @@ class EpisodeController extends AbstractController
      */
     public function delete(Request $request, Episode $episode): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$episode->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $episode->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($episode);
             $entityManager->flush();
