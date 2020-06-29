@@ -29,3 +29,6 @@ https://www.loom.com/share/76feca995149483d9c5a640def79972c
 
 Vidéo Quête 18 :
 https://www.loom.com/share/9f19fda02e7147e69f8384ca74c03267
+
+Video quête 19 :
+https://www.loom.com/share/f340f0708f4e47c8847da946af81ecda
