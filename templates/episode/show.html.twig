@@ -3,30 +3,26 @@
 {% block title %}Episode{% endblock %}
 
 {% block body %}
-    <h1>Episode</h1>
 
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th>Id</th>
-            <td class="text-primary">{{ episode.id }}</td>
-        </tr>
-        <tr>
-            <th>Title</th>
-            <td class="text-primary">{{ episode.title }}</td>
-        </tr>
-        <tr>
-            <th>Number</th>
-            <td class="text-primary">{{ episode.number }}</td>
-        </tr>
-        <tr>
-            <th>Synopsis</th>
-            <td class="text-primary">{{ episode.synopsis }}</td>
-        </tr>
-    </table>
+    <div class="card bg-transparent">
+        <div class="card-body">
+            <h3 class="card-title text-secondary"> {{ program.title }} | Saison {{ episode.season.number }} </h3>
+            <h5 class="card-subtitle mb-2 text-secondary"> Episode n°{{ episode.number }} :
+                "{{ episode.title }}"</h5> <br>
+            <p class="card-text">Synopsis : {{ episode.synopsis }}</p> <br>
+            <a class="card-link" href="{{ path('show_season', {'id': season.id}) }}"> La
+                saison {{ episode.season.number }}</a>
+            <a class="card-link" href="{{ path('wild_show', {'slug': program.title|replace({' ':'-'})|lower}) }}"> La
+                série</a>
+            <a class="card-link" href="{{ path('app_index') }}">
+                Retour à l'accueil
+            </a>
+        </div>
+    </div>
+    <br>
 
     {% if app.user %}
-        <h4>Leave a comment about "{{ episode.title }}":</h4>
+        <h4 class="text-center">Laisser un commentaire sur "{{ episode.title }}":</h4>
         {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         <div>
             {{ form_errors(form) }}
@@ -39,17 +35,20 @@
         {{ form_end(form) }}
     {% endif %}
 
-    <h4>All comments about "{{ episode.title }}" :</h4>
+<div class="card bg-transparent">
+    <div class="card-body">
+    <h4>Tous les commentaires sur "{{ episode.title }}" :</h4>
     {% for item in episode.comments %}
         <p class="author">Author : {{ item.author }}</p>
-        <p class="comment">Comment : {{ item.comment }}</p>
+        <p class="comment">Comment : " {{ item.comment }} "</p>
         <p class="rate">Rate : {{ item.rate }}</p><br>
     {% endfor %}
-
     <div>
-        <a href="{{ path('episode_index') }}">back to list</a>
-        <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">edit</a>
-        <a href="{{ path('episode_delete', {'id': episode.id}) }}">delete</a>
+        <a class="card-link" href="{{ path('episode_index') }}">Retour à l'index des épisodes</a>
+        <a class="card-link" href="{{ path('episode_edit', {'slug': episode.slug}) }}">Modifier</a>
+        <a class="card-link" href="{{ path('episode_delete', {'id': episode.id}) }}">Supprimer</a>
     </div>
+    </div>
+</div>
 
 {% endblock %}

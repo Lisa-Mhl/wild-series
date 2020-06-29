@@ -59,6 +59,8 @@ class EpisodeController extends AbstractController
      */
     public function show(Episode $episode, Request $request, CommentRepository $commentRepository): Response
     {
+        $season = $episode->getSeason();
+        $program = $season->getProgram();
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
@@ -74,6 +76,8 @@ class EpisodeController extends AbstractController
         return $this->render('episode/show.html.twig', [
             'episode' => $episode,
             'form' => $form->createView(),
+            'program' => $program,
+            'season' => $season,
             'comments' => $commentRepository->findAll(),
         ]);
     }
