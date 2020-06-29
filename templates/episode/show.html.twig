@@ -41,12 +41,20 @@
     {% for item in episode.comments %}
         <p class="author">Author : {{ item.author }}</p>
         <p class="comment">Comment : " {{ item.comment }} "</p>
-        <p class="rate">Rate : {{ item.rate }}</p><br>
+        <p class="rate">Rate : {{ item.rate }}</p> <br>
+        {% if is_granted('ROLE_SUBSCRIBER') %}
+            {% if app.user is same as (item.author) %}
+        <a class="card-link" href="{{ path('comment_delete', {'id': item.id}) }}">Supprimer mon commentaire</a>  <br>  <br>
+        {% endif %}
+        {% endif %}
     {% endfor %}
+
     <div>
         <a class="card-link" href="{{ path('episode_index') }}">Retour à l'index des épisodes</a>
+        {% if is_granted('ROLE_ADMIN') %}
         <a class="card-link" href="{{ path('episode_edit', {'slug': episode.slug}) }}">Modifier</a>
         <a class="card-link" href="{{ path('episode_delete', {'id': episode.id}) }}">Supprimer</a>
+        {% endif %}
     </div>
     </div>
 </div>

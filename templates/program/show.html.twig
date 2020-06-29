@@ -26,12 +26,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('program_index') }}">back to list</a>
-
-    <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
-
-    {{ include('program/_delete_form.html.twig') }}
-
+    <a href="{{ path('program_index') }}">Retour à la liste des séries</a> <br>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('program_edit', {'slug': program.slug}) }}">Modifier</a>
+        <a class="card-link" href="{{ path('program_delete', {'id': program.id}) }}">Supprimer</a> <br>
+    {% endif %}
     <strong>Acteurs :</strong>
     <ul>
         {% for actor in program.actors %}

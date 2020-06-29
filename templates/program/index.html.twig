@@ -7,13 +7,13 @@
 
     <table class="table">
         <thead class="thead-dark">
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Summary</th>
-                <th>Poster</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Summary</th>
+            <th>Poster</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for program in programs %}
@@ -23,8 +23,10 @@
                 <td class="text-primary">{{ program.summary }}</td>
                 <td><img class="card-img-top" id="tab_poster" src="{{ program.poster }}" alt="{{ program.title }}"></td>
                 <td>
-                    <a href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
-                    <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+                    <a href="{{ path('program_show', {'slug': program.slug}) }}">Voir</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('program_edit', {'slug': program.slug}) }}">Modifier</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -34,6 +36,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('program_new') }}">Create new</a>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('program_new') }}">Créer une nouvelle série</a>
+    {% endif %}
 {% endblock %}
