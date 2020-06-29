@@ -2,4 +2,10 @@
     <h2 class="navbar-brand text-secondary">Wild Séries</h2>
     <a class="navbar-brand text-primary" href="/">Accueil</a>
     <a class="navbar-brand text-primary" href="/wild">Séries</a>
+    {% if app.user %}
+        {{ app.user.email }}
+        <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+    {% else %}
+        <a href="{{ path('app_login') }}"> Se connecter</a>
+    {% endif %}
 </nav>
