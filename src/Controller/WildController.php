@@ -106,4 +106,14 @@ class WildController extends AbstractController
         );
     }
 
+    /**
+     * @Route("/my-profile", name="my-profile")
+     * @return Response
+     */
+
+    public function showMyProfile(): Response
+    {
+        return $this->render('wild/my_profile.html.twig');
+    }
+
 }

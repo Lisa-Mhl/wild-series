@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Compte{% endblock %}
+
+{% block body %}
+    <h1> Mon Compte</h1>
+    {% if app.user %}
+        <h3 class="welcomeTitle"> Bienvenue sur Wild Series {{ app.user }} </h3>
+
+    {% endif %}
+{% endblock %}

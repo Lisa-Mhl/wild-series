@@ -3,9 +3,9 @@
     <a class="navbar-brand text-primary" href="/">Accueil</a>
     <a class="navbar-brand text-primary" href="/wild">Séries</a>
     {% if app.user %}
-        {{ app.user.email }}
-        <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+        <a class="navbar-brand text-primary" href="{{ path('app_logout') }}"> Se déconnecter</a>
+        <a class="navbar-brand text-primary" href="{{ path('my-profile') }}"> Mon Compte</a>
     {% else %}
-        <a href="{{ path('app_login') }}"> Se connecter</a>
+        <a class="navbar-brand text-primary" href="{{ path('app_login') }}"> Se connecter</a>
     {% endif %}
 </nav>
