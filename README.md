@@ -35,3 +35,7 @@ https://www.loom.com/share/f340f0708f4e47c8847da946af81ecda
 
 Video Quête 20 :
 https://www.loom.com/share/63d53aae1abc450ab0a4832de8bade9b
+
+Video Qûete 21 :
+https://www.loom.com/share/48e46aa5e66b4f78ad31e5472fc79e81
+
