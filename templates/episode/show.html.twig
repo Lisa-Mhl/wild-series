@@ -44,7 +44,6 @@
                 <p class="rate">Rate : {{ item.rate }}</p> <br>
                 {% if is_granted('ROLE_SUBSCRIBER') %}
                     {% if app.user is same as (item.author) %}
-                        {{ dump(item.id) }}
                      {% include '/episode/_delete_comment.html.twig' %}
                     {% endif %}
                 {% endif %}
@@ -54,7 +53,7 @@
                 <a class="card-link" href="{{ path('episode_index') }}">Retour à l'index des épisodes</a>
                 {% if is_granted('ROLE_ADMIN') %}
                     <a class="card-link" href="{{ path('episode_edit', {'slug': episode.slug}) }}">Modifier l'épisode</a>
-                    <a class="card-link" href="{{ path('episode_delete', {'id': episode.id}) }}">Supprimer l'épisode</a>
+                    {{ include('episode/_delete_form.html.twig') }}
                 {% endif %}
             </div>
         </div>
